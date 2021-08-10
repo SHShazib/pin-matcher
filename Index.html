@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <title>Calculator</title>
+</head>
+
+<body>
+  
+<div>
+              <!--==========Pin Area ============-->
+              <div class="col-1">
+                <h1>PIN BAR</h1>
+                <input class="input form-control" type="text" id="pin">
+                <br>
+                <button onclick="random()">PIN</button>
+              </div>
+  
+            <!-- =================Alert area=============== -->
+  <div class="col-2">
+        <div id="alert">
+          <p class="true" id="true">Thank You! <br><br>  ✔ Correct Pin </p>
+          <p class="wrong" id="wrong"> Oops, Sorry!<br><br> ✘ Wrong Pin</p>
+        </div>
+  </div>
+  <!--=======Submit Area==========-->
+  
+              <div class="col-3">
+                <h1>INPUT BAR</h1>
+                    <div class="display">
+                                <input class="input form-control" type="text" name="" id="input">
+                      </div>
+                    <div class="button-row">
+                              <button class="btn" onclick="getNum('7')">7</button>
+                                <button class="btn" onclick="getNum('8')">8</button>
+                                <button class="btn" onclick="getNum('9')">9</button>
+                    </div>
+                    <div class="button-row">
+                            <button class="btn" onclick="getNum('4')">4</button>
+                            <button class="btn" onclick="getNum('5')">5</button>
+                            <button class="btn" onclick="getNum('6')">6</button>
+                    </div>
+                    <div class="button-row">
+                            <button class="btn" onclick="getNum('1')">1</button>
+                            <button class="btn" onclick="getNum('2')">2</button>
+                            <button class="btn" onclick="getNum('3')">3</button>
+                    </div>
+                    <div class="button-row">
+                            <button class="btn" onclick="deleteChar()">&lt;</button>
+                            <button class="btn" onclick="getNum('0')">0</button>
+                            <button class="btn" onclick="clean()">Clear</button>
+                    </div>
+                    <button id="submit" onclick="matching()">Submit</button>
+              </div>
+ </div>
+
+
+
+
+<script>
+  //Common function 
+  // 1.displayNone
+  function displayNone(id){
+    document.getElementById(id).style.display = 'none';
+  }
+  // 2.displayBlock
+  function displayBlock(id){
+    document.getElementById(id).style.display = 'block';
+  }
+  // 3.emptyValue
+  function emptyValue(id){
+    document.getElementById(id).value = '';
+  }
+
+
+   // 1.get number
+  function getNum(num){
+  var number = document.getElementById("input");
+  number.value += num;
+  }
+  
+  
+  //2.get Random (pin) Number
+  function random(){
+        var number =Math.floor(Math.random()*9000)+1000;
+        document.getElementById("pin").value = number;
+        emptyValue("input");
+        displayNone("true");
+        displayNone("wrong");
+  }
+  
+  //3.Clear button 
+  function clean(){
+        document.getElementById("input").value = '';
+  }
+  
+  //4.Remove last digit
+  function deleteChar(){
+        var number = document.getElementById("input");
+        var remove = number.value;
+        remove = remove.slice(0,-1);
+        number.value = remove;
+  }
+  
+  //5.Matching pin and input number 
+  function matching(){
+          var randomNumber =document.getElementById("input").value;
+          var pinNumber =document.getElementById("pin").value;
+          if(randomNumber == pinNumber){
+            displayBlock("true");
+            displayNone("wrong");
+          }
+          else{
+            displayBlock("wrong");
+            displayNone("true");
+          }
+  }
+  
+</script>
+</body>
+
+</html>

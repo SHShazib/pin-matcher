@@ -1,0 +1,61 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+.col-1,.col-3{
+ width: 350px;
+ height: 450px;
+ margin: 25px;
+ border: 2px solid gray;
+ text-align: center;
+ padding: 10px;
+ float: left;
+ overflow: hidden;
+}
+.col-2{
+  width: 350px;
+  height: 420px;
+  margin: 20px;
+  text-align: center;
+  padding-top: 80px;
+  float: left;
+  overflow: hidden;
+}
+.input {
+  width: 90%;
+  margin: 20px 0px;
+  height: 60px;
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  border-radius: 10px;
+}
+button{
+  width: 30%;
+  height: 60px;
+  background-color: black;
+  color:white;
+  font-size: 25px;
+  font-weight: bold;
+}
+.alert {
+  text-align: center;
+  font-weight: bold;
+}
+.true{
+  color: green;
+  display: none ;
+}
+.wrong{
+  color: red;
+  display: none;
+}
+#submit {
+  margin-top: 10px;
+  width: 150px;
+}
+#alert {
+  margin-top: 100px;
+  font-size: 30px;
+  font-weight: bold;
+}
